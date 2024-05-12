@@ -1,0 +1,51 @@
+{
+  "employee": [
+    {
+      "id": "1",
+      "name": "john",
+      "email": "jhon@gmail.com",
+      "phone": "066"
+    },
+    {
+      "id": "ee1c",
+      "name": "fhfhfh",
+      "email": "fgf@gmail.com",
+      "phone": "54567770000"
+    },
+    {
+      "id": "3689",
+      "name": "bbb",
+      "email": "bbb@in.com",
+      "phone": "44444",
+      "active": true
+    },
+    {
+      "id": "b7a2",
+      "name": "hhh",
+      "email": "hh.in",
+      "phone": "098",
+      "active": true
+    },
+    {
+      "id": "ad68",
+      "name": "vhghghf",
+      "email": "vvvvv@in.co",
+      "phone": "0009998888",
+      "active": true
+    },
+    {
+      "id": "b9f3",
+      "name": "bbb",
+      "email": "bnb@in.com",
+      "phone": "09765",
+      "active": true
+    },
+    {
+      "id": "449a",
+      "name": "nb",
+      "email": "vvv@in.cocco",
+      "phone": "123456789",
+      "active": true
+    }
+  ]
+}
