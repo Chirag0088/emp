@@ -5,7 +5,7 @@ function EmpDetail() {
   const {empid} = useParams();
   const [empdata,setEmpdata] = useState({})
   useEffect (()=>{
-    fetch("http://localhost:8000/employee/"+empid).then((res)=>{
+    fetch("https://reqres.in/api/unknown/"+empid).then((res)=>{
             // fetch("http://dummy.restapiexample.com/api/v1/employees").then((res)=>{
             return res.json();
         }).then((resp)=>{
@@ -23,10 +23,10 @@ function EmpDetail() {
         <div className="card-body"></div>
       {empdata &&
       <div>
-        <h2>The Employee Name is :{empdata.name}({empdata.id})</h2>
+        <h2>The Employee Name is :{empdata.first_name}{empdata.last_name}({empdata.id})</h2>
         <h3>Contact Details</h3>
         <h5>Email is : {empdata.email}</h5>
-        <h5>Phone is : {empdata.phone}</h5>
+        
         <Link className='btn btn-danger' to="/">Back to Listing</Link>
         </div>
       }

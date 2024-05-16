@@ -26,7 +26,7 @@ function EmpListing() {
         //     })
         // }
         if(window.confirm("Do you want to Remove..?")){
-            fetch("http://localhost:8000/employee/"+id,{
+            fetch("https://reqres.in/api/users/"+id,{
                 method:"DELETE",
                
             }).then((res)=>{
@@ -38,7 +38,7 @@ function EmpListing() {
         }
     }
     useEffect(() =>{
-        fetch("http://dummy.restapiexample.com/api/v1/employees").then((res)=>{
+        fetch("https://reqres.in/api/users").then((res)=>{
             // fetch("http://dummy.restapiexample.com/api/v1/employees").then((res)=>{
             return res.json();
         }).then((resp)=>{
@@ -82,20 +82,22 @@ function EmpListing() {
                     <thead className='bg-dark'>
                         <tr className='colorr'>
                             <td className='bg-dark text-white'>ID</td>
-                            <td className='bg-dark text-white'>Name</td>
                             <td className='bg-dark text-white'>Email</td>
-                            <td className='bg-dark text-white'>Phone</td>
+                            <td className='bg-dark text-white'>First_Name</td>
+                            <td className='bg-dark text-white'>Last_Name</td>
+                            <td className='bg-dark text-white' avatar="">Profile-Image</td>
                             <td className='bg-dark text-white'>Action</td>
                         </tr>
                     </thead>
                     <tbody>
                         {empdata && 
-                            empdata.filter(item=>item.name.toLowerCase().includes(query)).map(item=>(
+                            empdata.filter(item=>item.first_name.toLowerCase().includes(query)).map(item=>(
                                 <tr key={item.id}>
                                     <td>{item.id}</td>
-                                    <td>{item.name}</td>
                                     <td>{item.email}</td>
-                                    <td>{item.phone}</td>
+                                    <td>{item.first_name}</td>
+                                    <td>{item.last_name}</td>
+                                    <td>{item.avatar}</td>
                                     <td><a onClick={()=>{LoadEdit(item.id)}} className='btn btn-success'>Edit</a>
                                     <a onClick={()=>{Removefunction(item.id)}} className='btn btn-danger'>Remove</a>
                                     <a onClick={()=>{LoadDetail(item.id)}} className='btn btn-primary'>Details</a></td>

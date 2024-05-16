@@ -3,10 +3,10 @@ import { Link, Navigate, useNavigate } from 'react-router-dom'
 
 function EmpCreate() {
     const [id, setId] = useState("");
-    const [name, setName] = useState("");
+    const [first_name, setFirst_name] = useState("");
+    const [last_name, setLast_name] = useState("");
     const [email, setEmail] = useState("");
-    const [phone, setPhone] = useState("");
-    const [active, setActive] = useState(true);
+    const [avtar, setAvtar] = useState("");
     const [valid, setValid] = useState(false);
     
     const navigate = useNavigate();
@@ -14,9 +14,9 @@ function EmpCreate() {
     const handlesubmit =(e)=>{
         e.preventDefault();
        
-       const empdata={name,email,phone,active};
+       const empdata={first_name,last_name,email,avtar};
        
-        fetch("http://localhost:8000/employee",{
+        fetch("https://reqres.in/api/users",{
             method:"POST",
             headers:{"content-type":"application/json"},
             body:JSON.stringify(empdata)
@@ -46,28 +46,28 @@ function EmpCreate() {
                                     </div>
                                     <div className="col-lg-12">
                                         <div className="form-group">
-                                            <label >Name</label>
-                                            <input type="text" value={name} onMouseDown={e=>setValid(true)} required onChange={e=>setName(e.target.value)} className='form-control' />
-                                         {name.length===0 && valid && <span className='text-danger'>Enter the name</span>}
+                                            <label >First_Name</label>
+                                            <input type="text" value={first_name} onMouseDown={e=>setValid(true)} required onChange={e=>setFirst_name(e.target.value)} className='form-control' />
+                                         {first_name.length===0 && valid && <span className='text-danger'>Enter the name</span>}
                                         </div>
                                     </div>
 
                                     <div className="col-lg-12">
                                         <div className="form-group">
-                                            <label >Email</label>
-                                            <input type="text" value={email} onChange={e=>setEmail(e.target.value)} className='form-control' />
+                                            <label >Last_Name</label>
+                                            <input type="text" value={last_name} onChange={e=>setLast_name(e.target.value)} className='form-control' />
                                         </div>
                                     </div>
                                     <div className="col-lg-12">
                                         <div className="form-group">
-                                            <label >Phone</label>
-                                            <input type="number" value={phone} onChange={e=>setPhone(e.target.value)}  className='form-control' />
+                                            <label >Email</label>
+                                            <input type="email" value={email} onChange={e=>setEmail(e.target.value)}  className='form-control' />
                                         </div>
                                     </div>
                                     <div className="col-lg-12">
-                                        <div className="form-check">
-                                            <input type="checkbox" checked={active} onChange={e=>setActive(e.target.checked)} className='form-check-input' />
-                                            <label className='form-check-label'>Is Active</label>
+                                    <div className="form-group">
+                                        <label>profile_image</label>
+                                            <input src='' value={avtar} onChange={e=>setAvtar(e.target.value)} className='form-control' />
                                         </div>
                                     </div>
                                     <div className="col-lg-12">
